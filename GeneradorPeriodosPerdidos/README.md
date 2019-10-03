@@ -33,7 +33,7 @@ mvn package
 ```
 - Una vez ejecutado el comando, dirigirse al directorio target y desplegar el war "GeneradorPeriodosPerdidos-0.0.1-SNAPSHOT.war" en el servidor web.
 
-- Una vez desplegado el war, ejecutar desde un cliente REST (Ej, postman, soapUI, etc) la siguiente URL: http://localhost:8080//GeneradorPeriodosPerdidos-0.0.1-SNAPSHOT/generadorPeriodos/generadorPeriodosRest/obtenerPeriodosFaltantes/
+- Una vez desplegado el war, ejecutar desde un cliente REST (Ej, postman, soapUI, etc) la siguiente URL: http://ipServidor:puerto/GeneradorPeriodosPerdidos-0.0.1-SNAPSHOT/generadorPeriodos/generadorPeriodosRest/obtenerPeriodosFaltantes/ 
 
 -** En caso de modificar la url del de la api rest de swagger, esta se puede modificar en el archivo config.properties y volver a compilar (mvn package), de igual manera la ruta por defecto configurada es la indicada en la descripcion del desafio (http://127.0.0.1:8080/periodos/api)
 
