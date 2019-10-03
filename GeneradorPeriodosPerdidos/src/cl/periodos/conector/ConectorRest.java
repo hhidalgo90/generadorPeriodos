@@ -82,22 +82,16 @@ public class ConectorRest {
 	private String obtenerUrlRest() {
 		Properties prop = new Properties();
 		String url = "";
-		try {
-			InputStream input = new FileInputStream("config.properties");
-			
-			prop.load(input);
-			
+		
+	       try {
+	    	   prop.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
+	        } catch (IOException e) {
+	        	System.out.println("[obtenerUrlRest] Ocurrio un error al obtener url");
+	        	e.getMessage();
+	        }
+		
+	       url = prop.getProperty("URL");
 
-	        System.out.println(prop.getProperty("URL"));
-		} catch (IOException e) {
-			System.out.println("[obtenerUrlRest] Ocurrio un error al obtener la URL.");
-			e.printStackTrace();
-			return null;
-		}
-		for(String key : prop.stringPropertyNames()) {
-			  url = prop.getProperty(key);
-			  System.out.println(key + " => " + url);
-		}
 		return url;
 	}	
 }
