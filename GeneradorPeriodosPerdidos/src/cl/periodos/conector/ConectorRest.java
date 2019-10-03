@@ -1,8 +1,11 @@
 package cl.periodos.conector;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,7 +34,7 @@ public class ConectorRest {
 			
 			String urlRest = obtenerUrlRest();
 			
-			if(urlRest == null){
+			if(urlRest == null || urlRest.equals("")){
 				urlRest = "http://127.0.0.1:8080/periodos/api";
 			}
 			
@@ -80,7 +83,12 @@ public class ConectorRest {
 		Properties prop = new Properties();
 		String url = "";
 		try {
-			prop.load(new FileInputStream("myProp.properties"));
+			InputStream input = new FileInputStream("config.properties");
+			
+			prop.load(input);
+			
+
+	        System.out.println(prop.getProperty("URL"));
 		} catch (IOException e) {
 			System.out.println("[obtenerUrlRest] Ocurrio un error al obtener la URL.");
 			e.printStackTrace();
